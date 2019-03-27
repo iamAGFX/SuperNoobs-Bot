@@ -160,9 +160,7 @@ client.on('message', (receivedMessage) => {
 	if (receivedMessage.content.includes('call me')) {
         receivedMessage.channel.send("cAlL mE gOD")
 	}
-})
+});
 
 
-bot_secret_token = "NTU5NDMxNDQzOTczOTMxMDEw.D3tZ_A.hpneLo1qys4m18Cl4PBp8CJWB20"
-
-client.login(bot_secret_token)
+client.login(process.env.token)
