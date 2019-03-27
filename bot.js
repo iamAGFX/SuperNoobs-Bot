@@ -5,7 +5,7 @@ const { Client, RichEmbed } = require('discord.js');
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
     client.user.setActivity("over this server.", {type: "WATCHING"})
-})
+});
 
 // EMBEDDED
 client.on('message', message => {
