@@ -1,16 +1,16 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
 const { Client, RichEmbed } = require('discord.js');
+const Discord = require('discord.js')
+const client = new Discord.Client()
 
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
     client.user.setActivity("over this server.", {type: "WATCHING"})
-});
+})
 
 // EMBEDDED
 client.on('message', message => {
 // INTRO	
-	if (message.content === 'sns help')
+	if (message.content === '.sns help')
 	{
     message.channel.send({embed:
 	{
@@ -18,28 +18,28 @@ client.on('message', message => {
     title: "SUPERNOOBS BOT (Beta)",
     description: "So excited to have you test out my bot! Here are the current commands that you can try out (more coming soon!): ",
 	fields: [{
-        name: "1. sns discord",
+        name: "1. .sns discord",
         value: "Generate a permanent discord server link."
       },
       {
-        name: "2. sns join",
+        name: "2. .sns join",
         value: "SuperNoobs membership form link."
       },
       {
-        name: "3. sns yt",
+        name: "3. .sns yt",
         value: "The official YouTube channel of SuperNoobs."
       },
 	  {
-        name: "4. sns steam",
+        name: "4. .sns steam",
         value: "The official Steam group of SuperNoobs."
       },
       {
-        name: "5. bhai bhai",
-        value: "The BHAI-BHAI command."
+        name: "5. .sns",
+        value: "A brief intro about out clan, SuperNoobs."
       },	
 	  {
-        name: "6. whats sns",
-        value: "A brief intro about out clan, SuperNoobs."
+        name: "6. bhai bhai",
+        value: "The BHAI-BHAI command."
       },
       {
         name: "Additional auto-respond triggers:",
@@ -66,7 +66,17 @@ client.on('message', message => {
  
   message.channel.send({embed});
   }
-  if (message.content === 'sns discord')
+  if (message.content === 'Bhai bhai')
+  {
+	const embed = new Discord.RichEmbed()
+	.setTitle("BHAI BHAI!")
+	.setDescription(message.author.toString() + " is bhai :heart:")
+	.setColor(0x8f20e7)
+	.setThumbnail(message.author.avatarURL);
+ 
+  message.channel.send({embed});
+  }
+  if (message.content === '.sns discord')
   {
     message.channel.send({embed: 
 	{
@@ -77,7 +87,7 @@ client.on('message', message => {
 	}
 	});
   }
-  if (message.content === 'sns join')
+  if (message.content === '.sns join')
   {
 
     message.channel.send({embed:
@@ -89,7 +99,7 @@ client.on('message', message => {
 	}
 	});
   }
-  if (message.content === 'sns yt')
+  if (message.content === '.sns yt')
   {
     message.channel.send({embed: 
 	{
@@ -100,7 +110,7 @@ client.on('message', message => {
 	}
 	});
   }
-  if (message.content === 'sns steam')
+  if (message.content === '.sns steam')
   {
     message.channel.send({embed: 
 	{
@@ -111,7 +121,7 @@ client.on('message', message => {
 	}
 	});
   }
-  if (message.content === 'whats sns')
+  if (message.content === '.sns')
   {
     message.channel.send({embed: 
 	{
@@ -127,6 +137,7 @@ client.on('message', message => {
 	}
 	});
   }
+
 });
 
 
@@ -160,7 +171,16 @@ client.on('message', (receivedMessage) => {
 	if (receivedMessage.content.includes('call me')) {
         receivedMessage.channel.send("cAlL mE gOD")
 	}
-});
+	if (receivedMessage.content.includes('i am g0d')) {
+        receivedMessage.channel.send("i aM gOD")
+	}
+	if (receivedMessage.content.includes('i am god')) {
+        receivedMessage.channel.send("i aM gOD")
+	}
+	if (receivedMessage.content.includes(client.user.toString())) {
+        receivedMessage.channel.send(receivedMessage.author.toString() + " Yo! What can I do for you? Type in .sns help to get started.")
+    	}
+})
 
 
 client.login(process.env.BOT_TOKEN)
